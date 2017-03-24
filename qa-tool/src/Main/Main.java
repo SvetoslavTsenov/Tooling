@@ -66,7 +66,6 @@ public class Main extends Application {
 
         this.menu = this.addHBox();
         VBox vbox = new VBox(this.menu, this.screensController);
-        screensController.setStyle("-fx-background-color: purple");
         screensController.setStyle("-fx-background-color: yellow");
         vbox.setStyle("-fx-background-color: green");
 

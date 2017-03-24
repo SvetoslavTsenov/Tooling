@@ -1,7 +1,5 @@
 package clientmanger;
 
-import screenextension.ControlledScreen;
-import screenextension.ScreensController;
 import imageview.ImageViewController;
 import imageview.ImageViewModel;
 import imageview.ImagesHolder;
@@ -25,6 +23,8 @@ import javafx.scene.web.*;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Callback;
+import screenextension.ControlledScreen;
+import screenextension.ScreensController;
 import utils.ImageDownloader;
 import utils.ImageUtils;
 import utils.OSUtils;
@@ -79,11 +79,9 @@ public class Browser extends HBox implements ControlledScreen {
         this.browserActionBar = this.createActionBar();
         this.browserToolBar = this.createBottomBar();
         //java.net.CookieHandler.setDefault(null);
-        this.menuWidth.setValue(1);
         this.menuBar = this.createSideMenu();
-        this.menuBar.prefWidthProperty().bindBidirectional(this.menuWidth);
         this.menuBar.setVisible(false);
-
+        this.menuBar.setPrefWidth(0);
         this.showPrevDoc.setOnAction(new EventHandler() {
             @Override
             public void handle(Event t) {
@@ -251,6 +249,7 @@ public class Browser extends HBox implements ControlledScreen {
             }
         });
 
+        this.menuWidth.setValue(btnGetAllImages.getWidth());
         vbox.getChildren().addAll(btnGetAllImages, btnPreviewImages);
 
         return vbox;
@@ -316,10 +315,10 @@ public class Browser extends HBox implements ControlledScreen {
             public void handle(ActionEvent event) {
                 isExpanded = !isExpanded;
                 if (isExpanded) {
-                    menuWidth.setValue(300);
+                    menuBar.setPrefWidth(150);
                     menuBar.setVisible(true);
                 } else {
-                    menuWidth.setValue(1);
+                    menuBar.setPrefWidth(0);
                     menuBar.setVisible(false);
                 }
             }
