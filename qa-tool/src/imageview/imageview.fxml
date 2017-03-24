@@ -1,0 +1,10 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<GridPane fx:id="gridPane"
+          fx:controller="imageview.ImageViewController"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="center">
+    <padding>
+        <Insets top="25" right="25" bottom="10" left="25"/>
+    </padding>
+</GridPane>

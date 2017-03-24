@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="gson_2_8_0_sources">
+    <ANNOTATIONS>
+      <root url="file://$PROJECT_DIR$/../gson_2_8_0_sources.xml" />
+      <root url="file://$PROJECT_DIR$/../json_20160810.xml" />
+      <root url="file://$PROJECT_DIR$/../json_simple_1_1_1.xml" />
+    </ANNOTATIONS>
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
