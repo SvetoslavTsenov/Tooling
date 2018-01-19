@@ -391,7 +391,7 @@ public class Browser extends HBox implements ControlledScreen {
             String branch = "";
             String appliaction = "";
             if (this.currentMousePosition != null) {
-                branch = this.currentMousePosition.contains("Stable") ? "Stable" : "Release";
+                branch = this.currentMousePosition.toLowerCase().contains("stable") ? "Stable" : "Release";
                 if (this.currentMousePosition.toLowerCase().contains("uitests")) {
                     appliaction = "uitests";
                 }
