@@ -397,7 +397,7 @@ public class CompareImagesViewController extends Region {
 
     private File getBranchFullPath(String branch) {
         String env = System.getenv(STORAGE_ENVIRONMENT_VARIABLE);
-        String bEnv = env.replace("Stable", "").replace("Release", "");
+        String bEnv = env.replace("Stable", "");
         String branchFormat = bEnv + branch + File.separator + "images";
         File file = new File(branchFormat);
         this.selectedBranch = file.getAbsolutePath();

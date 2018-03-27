@@ -1,5 +1,7 @@
 package clientmanger;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -23,15 +25,25 @@ public class ClientManager {
             e.printStackTrace();
         }
 
-        JSONObject main = new JSONObject(content);
+        JSONObject main = null;
+        try {
+            main = new JSONObject(content);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         ArrayList<String> images = new ArrayList<>();
 
-        main.getJSONArray(ClientManager.artifactString + "s").forEach(
-                j -> {
-                    String path = ((JSONObject) j).get("relativePath").toString();
-                    if (path.endsWith(".png") && path.contains("_actual") && !path.contains("result"))
-                        images.add(baseUrl + ClientManager.artifactString + File.separator + path);
-                });
+        try {
+            JSONArray jsonArray = main.getJSONArray(ClientManager.artifactString + "s");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                String path = ((JSONObject) jsonArray.get(i)).get("relativePath").toString();
+                if (path.endsWith(".png") && path.contains("_actual") && !path.contains("result"))
+                    images.add(baseUrl + ClientManager.artifactString + File.separator + path);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
         return images;
